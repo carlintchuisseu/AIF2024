@@ -1,0 +1,44 @@
+site_name: AI Frameworks
+
+use_directory_urls: false
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - Courses:
+    - Course Introduction: introduction.md
+    - Development tools for Data Scientist: 
+      - Introduction to Pytorch: developpement/pytorch.md
+      - Introduction to Git: developpement/git_intro.md
+      - Introduction to Docker: developpement/docker.md
+      - Practical session 1: developpement/mnist.md
+      - Practical session 2: developpement/colorize.md
+    - Recommender systems: 
+      - Course and practical session: rec_sys/rec_sys.md
+      - Project: rec_sys/rec_sys.md
+    - Introduction to Reinforcement Learning:
+      -  Course and practical session: rl.md
+      -  Project: rl.md
+    - Interpretability:
+      - Course and practical session: xai/interpretability.md
+      - Project: xai/interpretability.md
+    - Introduction to Natural Language Processing (NLP):
+      - Course and practical session: nlp.md
+      - Project: nlp.md
+  - Schedule: schedule.md
+  - Evaluation: evaluation.md
+  - Github repository: https://github.com/wikistat/AI-Frameworks
+#theme: slate
+theme:
+  name: 'flatly'
+  logo: img/logo-insa.jpg
+  favicon: img/favicon.ico
+  
