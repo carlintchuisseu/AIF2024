@@ -13,31 +13,33 @@ At the start of each practical session, approximately 15 minutes will be devoted
 *   [Course Introduction](introduction.md) 
 
 
-## Session 1 - 26/09/2022
-###### (9h30-12h15 & 14h00-16h45)
-   - **Development for Data Scientist**: [Introduction to Pytorch and Python scripts](dev.md)
-   - **Development for Data Scientist**: [Github Reminder](git_intro.md)
-   - **Development for Data Scientist**: [Introduction to GCloud](gcloud.md)
-   - **Development for Data Scientist**: [Introduction to Docker](docker.md)
+## Session 1: Developpement tools
+##### 09/10/2023 (9h30-12h15 & 13h30-16h15)
+   - [Introduction to Pytorch and Python scripts](developpement/pytorch.md)
+   - [Github Reminder](developpement/git_intro.md)
+   - [Introduction to Docker](developpement/docker.md)
+   - [Practical session 1](developpement/mnist.md)
+   - [Practical session 2](developpement/colorize.md)
         
-## Session 2 - 10/10/2022
-###### (9h30-12h15 & 14h00-16h45)
+## Session 2: Introduction to recommender systems
+##### 13/11/2023 (9h30-12h15 & 13h30-16h15)
    
-   * **Introduction to Reinforcement learning:** [Introduction to Reinforcement Learning](rl.md)
+   * [Introduction to recommender systems](rec_sys/rec_sys.md)
 
-## Session 3 - 24/10/2022
-###### (9h30-12h15 & 14h00-16h45)
+
+## Session 3: Introduction to Natural language processing
+##### 27/11/2023 (9h30-12h15 & 13h30-16h15)
    
-   * **Explainable AI**: [Interpretability in Machine Learning](interpretability.md)
-   
-
-## Session 4 - 14/11/2022
-###### (9h30-12h15 & 14h00-16h45)
-
-   * **Introduction to Natural language processing**: [Introduction to Natural language processing](nlp.md)
-
+   * [Introduction to Natural language processing](nlp/nlp.md)
    
 
-## Session 5 - 12/12/2022
-###### (9h30-12h15 & 14h00-16h45)
-   * **Introduction to recommender systems:** : [Introduction to recommender systems](rec_sys.md)
+## Session 4: Introduction to Reinforcement Learning
+##### 18/12/2023 (9h30-12h15 & 13h30-16h15)
+
+   * [Introduction to Reinforcement Learning](rl/rl.md)
+
+   
+
+## Session 5: Explainability methods
+##### 08/01/2024 (9h30-12h15 & 13h30-16h15)
+   * [Explainability methods](xai/interpretability.md)
