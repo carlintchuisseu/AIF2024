@@ -24,22 +24,22 @@ At the start of each practical session, approximately 15 minutes will be devoted
 ## Session 2: Introduction to recommender systems
 ##### 13/11/2023 (9h30-12h15 & 13h30-16h15)
    
-   * [Introduction to recommender systems](rec_sys/rec_sys.md)
+   <!-- * [Introduction to recommender systems](rec_sys/rec_sys.md) -->
 
 
 ## Session 3: Introduction to Natural language processing
 ##### 27/11/2023 (9h30-12h15 & 13h30-16h15)
    
-   * [Introduction to Natural language processing](nlp/nlp.md)
+   <!-- * [Introduction to Natural language processing](nlp/nlp.md) -->
    
 
 ## Session 4: Introduction to Reinforcement Learning
 ##### 18/12/2023 (9h30-12h15 & 13h30-16h15)
 
-   * [Introduction to Reinforcement Learning](rl/rl.md)
+   <!-- * [Introduction to Reinforcement Learning](rl/rl.md) -->
 
    
 
 ## Session 5: Explainability methods
 ##### 08/01/2024 (9h30-12h15 & 13h30-16h15)
-   * [Explainability methods](xai/interpretability.md)
+   <!-- * [Explainability methods](xai/interpretability.md) -->

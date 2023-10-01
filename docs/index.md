@@ -6,19 +6,17 @@
 # Artificial Intelligence Frameworks
 
 This course is the continuation of the [Machine Learning](https://github.com/wikistat/Apprentissage) and [High Dimensional & Deep Learning](https://github.com/wikistat/High-Dimensional-Deep-Learning) courses.  
-While these courses focused on machine learning and deep learning theory and methods, this course aims to provide you with the tools to apply these methods in concrete situations.  
+While these courses focused on machine learning and deep learning theory and methods, this course aims to teach you the practical skills to implement these methods in real-world situations. Specifically, you will:
 
-During this course you will:  
-
-- Learn to use cloud computing to train your models efficiently and monitor their trainings
-- Learn about code versioning and containers to share your code and produce reproducible results
--   Learn to process text data for natural language processing tasks
--   Learn to train autonomous agents to play video games using Reinforcement Learning
-- Learn how to implement a recommender system
-- Learn how to interpret your machine learning models
+-   Execute and deploy machine learning scripts.
+-   Understand code versioning and utilize containers for code sharing and achieving reproducible outcomes.
+-   Implement a recommender system.
+-   Process text data for natural language processing tasks.
+-   Train autonomous agents to master video games using Reinforcement Learning.
+-   Interpret your machine learning models for better insights.
 
 
-**NB**: Some contents from previous years are still available on the repository (like **Spark**) but are not treated anymore. 
+<!-- **NB**: Some contents from previous years are still available on the repository (like **Spark**) but are not treated anymore.  -->
 
 ## Knowledge requirements
 
