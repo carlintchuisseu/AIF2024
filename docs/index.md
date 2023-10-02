@@ -11,44 +11,50 @@ This course serves as a successor to the [Machine Learning](https://github.com/w
 
 While the aforementioned courses delved into the theory and methods of machine learning and deep learning, our current course is designed to equip you with the practical skills necessary to apply these methods in real-world scenarios. Specifically, we'll explore the following areas:
 
-#### Session 1: Development Environment and Tools
-- Python scripting
-- Version control using Git and GitHub
-- Working with Docker containers
-- Ensuring reproducibility
+1. **Development Environment and Tools**
+    - Python scripting
+    - Version control using Git and GitHub
+    - Working with Docker containers
+    - Ensuring reproducibility
 
-#### Session 2: Recommender Systems
-- Collaborative filtering
-- Content-based filtering
-- Hybrid recommender systems
-- Evaluating recommender systems
+2. **Session 2: Recommender Systems**
+    - Collaborative filtering
+    - Content-based filtering
+    - Hybrid recommender systems
+    - Evaluating recommender systems
 
-#### Session 3: Natural Language Processing (NLP)
-- Text preprocessing
-- Bag of Words approach
-- Word embeddings
-- Introduction to Transformers
+3. **Session 3: Natural Language Processing (NLP)**
+    - Text preprocessing
+    - Bag of Words approach
+    - Word embeddings
+    - Introduction to Transformers
 
-#### Session 4: Reinforcement Learning
-- Understanding Markov decision processes
-- Introduction to Q-learning and Deep Q-learning
+4. **Session 4: Reinforcement Learning**
+    - Understanding Markov decision processes
+    - Policy evaluation and improvement
+    - Introduction to Q-learning and Deep Q-learning
 
-#### Session 5: Explainable AI (XAI)
-- Understanding feature importance
-- Post-hoc explainability
-- Delving into local and global explainability
-- Exploring black-box explainability
-- Introduction to attribution methods
+5. **Session 5: Explainable AI (XAI)**
+    - Understanding feature importance
+    - Post-hoc explainability
+    - Delving into local and global explainability
+    - Exploring black-box explainability
+    - Introduction to attribution methods
 
 Each session consists of three components:  
 
-1. **Theoretical Learning:** This includes markdown documents and videos. Slides accompanying the videos will be provided for every lesson. Please review these materials before the practical sessions. Weekly reminders and content updates will be sent out. Should you have any queries, don't hesitate to raise them during the practical sessions or email me at david.bertoin (at) insa-toulouse.fr.
+#### Theoretical Learning:
+This includes markdown documents and videos. Slides accompanying the videos will be provided for every lesson. Please review these materials before the practical sessions. Weekly reminders and content updates will be sent out. Should you have any queries, don't hesitate to raise them during the practical sessions or email me at david.bertoin (at) insa-toulouse.fr.
+You will be evaluated on your understanding of the theoretical concepts through quizzes at the beginning of each practical session.
 
-2. **Practical Application:** Comprising a series of Jupyter notebooks and Python scripts, this hands-on component requires you to code and answer questions. A teaching assistant will be available to assist and clarify any doubts. Additionally, you're not expected to complete this in a single session; feel free to continue at home. This is also the time to work on your final project.
+#### Practical Application:
+Comprising a series of Jupyter notebooks and Python scripts, this hands-on component requires you to code and answer questions. A teaching assistant will be available to assist and clarify any doubts. Additionally, you're not expected to complete this in a single session; feel free to continue at home. This is also the time to work on your final project.
 
-3. **Final Project:** In teams of 4-5, you'll harness the knowledge gained throughout the course. The project encompasses two major tasks: constructing a movie recommender system with a user interface, and crafting a reinforcement learning agent to navigate a video game, while elucidating its decisions using XAI tools. While an hour is dedicated at the end of each practical session for this, additional work at home is anticipated. Upon course completion, you'll be expected to present a Docker image of your project along with its GitHub repository. Further specifics will be shared during the practical sessions.
+#### Final Project:
+In teams of 4-5, you'll harness the knowledge gained throughout the course. The project encompasses two major tasks: constructing a movie recommender system with a user interface, and crafting a reinforcement learning agent to navigate a video game, while elucidating its decisions using XAI tools. While an hour is dedicated at the end of each practical session for this, additional work at home is anticipated. Upon course completion, you'll be expected to present a Docker image of your project along with its GitHub repository. Further specifics will be shared during the practical sessions.
 
-
+### Evaluation
+Grading will be based on the final project (60%) and a quizzes (40%). The quizzes will be held at the beginning of each session and will test your understanding of the theoretical concepts.
 
 <!-- **NB**: Some contents from previous years are still available on the repository (like **Spark**) but are not treated anymore.  -->
 
