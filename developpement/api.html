@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Introduction to REST APIs - AI Frameworks</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/docco.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">AI Frameworks</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../index.html" class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Courses <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Development tools for Data Scientist</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="pytorch.html" class="dropdown-item">Introduction to Pytorch</a>
+</li>
+            
+<li>
+    <a href="git_intro.html" class="dropdown-item">Introduction to Git</a>
+</li>
+            
+<li>
+    <a href="docker.html" class="dropdown-item">Introduction to Docker</a>
+</li>
+            
+<li>
+    <a href="api.html" class="dropdown-item active">Introduction to REST APIs</a>
+</li>
+            
+<li>
+    <a href="mnist.html" class="dropdown-item">Practical session 1</a>
+</li>
+            
+<li>
+    <a href="colorize.html" class="dropdown-item">Practical session 2</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../schedule.html" class="nav-link">Schedule</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="https://github.com/DavidBert/AIF2024" class="nav-link">Github repository</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="docker.html" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="mnist.html" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#development-for-data-scientist" class="nav-link">Development for Data Scientist:</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#deploying-a-machine-learning-model-using-a-rest-api-in-python" class="nav-link">Deploying a Machine Learning Model using a REST API in Python</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="development-for-data-scientist">Development for Data Scientist:</h1>
+<h2 id="deploying-a-machine-learning-model-using-a-rest-api-in-python">Deploying a Machine Learning Model using a REST API in Python</h2>
+<p>In this lesson, we'll learn about <strong>REST APIs</strong> and how to deploy a machine learning model using <strong>Flask</strong> in <strong>Python</strong>.</p>
+<h3 id="what-is-model-deployment">What is Model Deployment?</h3>
+<p>Model deployment refers to the process of integrating a trained machine learning or statistical model into a production environment. The goal is to make the model's capabilities available to end-users, applications, or services. In the context of data science, deploying a model often means offering it as a service where applications send data to the model and receive predictions in return.</p>
+<h4 id="why-is-model-deployment-crucial">Why is Model Deployment Crucial?</h4>
+<p>Jupyter notebook or a local environment doesn't add business value. To realize its potential value, it must be made available where it's needed.
+ Model deployment is the bridge between building a model and getting it into the hands of users. It's the last step in the data science pipeline but often one of the most complex. Without effective deployment, even the most sophisticated models are of little use.</p>
+<h4 id="challenges-in-model-deployment">Challenges in Model Deployment:</h4>
+<p>Model deployment is a complex process that involves several challenges. Some of the most common ones are:</p>
+<ul>
+<li><strong>Scalability</strong>: Models may need to handle thousands of requests per second in some applications. It's crucial to ensure that deployment solutions can scale as needed.</li>
+<li><strong>Latency</strong>: Especially in real-time applications, the time taken for a model to provide a prediction (latency) can be critical.</li>
+<li><strong>Version Control</strong>: Models evolve over time. Deployment strategies need to account for versioning to ensure consistent and reproducible results.</li>
+<li><strong>Dependency Management</strong>: Models might rely on specific libraries and versions, making dependency management a significant concern during deployment.</li>
+</ul>
+<p>While understanding the importance and intricacies of model deployment is crucial, the practical aspect involves choosing a suitable method for deployment. One of the most popular and effective ways to deploy our models is by using <strong>REST APIs</strong>.</p>
+<p>REST (Representational State Transfer) APIs provide a standardized way to make our models accessible over the internet. This method not only makes it easier to integrate our models into different applications but also offers scalability and flexibility. With REST APIs, we can encapsulate our models as services that can be consumed by various applications, be it web, mobile, or other services.</p>
+<h3 id="what-is-an-api">What is an API?</h3>
+<p>An API, or Application Programming Interface, is a set of rules and protocols that allow different software entities to communicate with each other. It specifies how software components should interact, enabling the integration of different systems and sharing of data and functionality.</p>
+<h3 id="key-concepts-in-api">Key Concepts in API:</h3>
+<ul>
+<li><strong>Endpoint</strong>: A specific address or URL where an API can be accessed.</li>
+<li><strong>Request &amp; Response</strong>: The essential interaction in an API involves sending a request and receiving a response.</li>
+<li><strong>Rate Limiting</strong>: Restrictions on how many API calls a user or system can make within a specified time frame.</li>
+</ul>
+<p>While various types of APIs exist, such as <strong>SOAP</strong>, <strong>GraphQL</strong>, and <strong>RPC</strong>, we'll be concentrating on <strong>REST APIs</strong> in this course due to their ubiquity and relevance in deploying machine learning models.</p>
+<h3 id="overview-of-restful-services">Overview of RESTful Services:</h3>
+<p><strong>REST</strong>, or Representational State Transfer, is an architectural style for designing networked applications. RESTful services or APIs are designed around the principles of REST and use standard <strong>HTTP methods</strong>.</p>
+<h3 id="principles-of-rest">Principles of REST:</h3>
+<ul>
+<li><strong>Statelessness</strong>: Each request from a client contains all the information needed to process the request. The server retains no session information.</li>
+<li><strong>Client-Server Architecture</strong>: REST APIs follow a client-server model where the client is responsible for the user interface and user experience, and the server manages the data.</li>
+<li><strong>Cacheability</strong>: Responses from the server can be cached on the client side to improve performance.</li>
+<li><strong>Uniform Interface</strong>: A consistent and unified interface simplifies and decouples the architecture.</li>
+</ul>
+<p>Deploying a machine learning model using REST APIs is a common practice in the industry. It allows us to encapsulate our model as a service that can be consumed by other applications. This approach offers several advantages:</p>
+<ul>
+<li><strong>Platform Independence</strong>: RESTful APIs can be consumed by any client that understands HTTP, regardless of the platform or language.</li>
+<li><strong>Scalability</strong>: RESTful services are stateless, making it easier to scale by simply adding more servers.</li>
+<li><strong>Performance</strong>: With the ability to cache responses, REST APIs can reduce the number of requests, improving the performance.</li>
+<li><strong>Flexibility</strong>: Data can be returned in multiple formats, such as JSON or XML, allowing for flexibility in how it's consumed.</li>
+</ul>
+<p>APIs, especially RESTful APIs, are essential tools in the world of software integration. In the context of deploying data science models, they provide a mechanism to make the model accessible to other systems and applications in a standardized manner. As we delve deeper into this course, we'll see how to harness the power of REST APIs to deploy and serve our machine learning models efficiently.</p>
+<h3 id="components-of-rest-apis">Components of REST APIs:</h3>
+<h4 id="endpoints">Endpoints:</h4>
+<p>An endpoint refers to a specific address (URL) in an API where particular functions can be accessed. For example, <code>/predict</code> might be an endpoint for a machine learning model where you send data for predictions. For example, <code>https://api.example.com/predict</code> could be an endpoint for a machine learning model where you send data for predictions.</p>
+<h4 id="http-methods">HTTP Methods:</h4>
+<p>RESTful APIs use standard HTTP methods to denote the type of action to be performed:
+ - <strong>GET</strong>: Retrieve data.
+ - <strong>POST</strong>: Send data for processing or create a new resource.
+ - <strong>PUT</strong>: Update an existing resource.
+ - <strong>DELETE</strong>: Remove a resource.</p>
+<h4 id="status-codes">Status Codes:</h4>
+<p>HTTP status codes are standard response codes given by web servers on the Internet. They help identify the success or failure of an API request.
+ - <strong>200 OK</strong>: Successful request.
+ - <strong>201 Created</strong>: Request was successful, and a resource was created.
+ - <strong>400 Bad Request</strong>: The server could not understand the request.
+ - <strong>401 Unauthorized</strong>: The client must authenticate itself.
+ - <strong>404 Not Found</strong>: The requested resource could not be found.
+ - <strong>500 Internal Server Error</strong>: A generic error message when an unexpected condition was encountered.</p>
+<h4 id="requests-responses">Requests &amp; Responses:</h4>
+<p>Interacting with REST APIs involves sending requests and receiving responses. The request and response formats are standardized and follow a specific structure:
+ - <strong>Request</strong>: Comprises the endpoint, method, headers, and any data sent to the server.
+ - <strong>Response</strong>: Includes the status code, headers, and any data sent back from the server.</p>
+<p>Understanding the foundational elements of REST APIs is crucial for effectively designing, consuming, and deploying services on the web. As we transition to building our own APIs for model deployment, this knowledge will ensure we create efficient, scalable, and user-friendly interfaces for our models.</p>
+<h3 id="interacting-with-rest-apis-using-python">Interacting with REST APIs using Python</h3>
+<p>Python has a powerful library called <code>requests</code> that simplifies making requests to REST APIs. In this section, we will explore how to use this library to interact with an example API. For our hands-on learning, we'll fetch weather data using the <code>requests</code> library in Python.
+The <code>requests</code> library is a de facto standard for making HTTP requests in Python. It abstracts the complexities of making requests behind a simple API.</p>
+<p>In the following example, we'll use the <code>requests</code> library to fetch weather data from an API.
+<a href="https://openweathermap.org/">OpenWeatherMap</a> offers weather data, which is free for limited access. Although you typically need an API key, for brevity, we're using a mock API endpoint for our exercise.</p>
+<h5 id="crafting-a-get-request-for-weather-data">Crafting a GET Request for Weather Data</h5>
+<p>We can use the <code>requests</code> library to make a GET request to fetch weather data from the API. 
+ We'll fetch the current weather for a city. For our example, let's use London.</p>
+<pre><code class="language-python">
+ import requests
+
+# Mock URL for London's weather (no real API key needed)
+ url = 'https://samples.openweathermap.org/data/2.5/weather?q=London,uk&amp;appid=b6907d289e10d714a6e88b30761fae22'
+
+# Send the GET request
+ response = requests.get(url)
+
+# Process and display the result
+ if response.status_code == 200:
+     data = response.json()
+     print(f&quot;Weather in {data['name']} - {data['weather'][0]['description']}&quot;)
+     print(f&quot;Temperature: {data['main']['temp']}K&quot;)
+</code></pre>
+<p>This script will print the current weather description and temperature in Kelvin for London.</p>
+<p><strong>Note</strong>: The data returned is in JSON format. It's structured and easy to parse in Python, which makes it a popular choice for APIs.
+APIs can return a lot of data. Here, besides the weather description and temperature, you can also access humidity, pressure, wind speed, and much more. Explore the <code>data</code> dictionary to uncover these details.</p>
+<h4 id="sending-data-with-post-requests-in-python">Sending Data with POST Requests in Python</h4>
+<p>While GET requests are primarily used to retrieve information from a server without causing any side effects, POST requests serve a different purpose. The POST method is designed to submit data to a server, usually resulting in a change in the server's state, such as creating a new record, updating data, or triggering an action. In essence, while GET is about asking the server for specific data, POST is about sending data to the server. With that understanding, let's delve into how to send data using POST requests in Python.</p>
+<p>For the sake of our pedagogical example, let's use <a href="https://jsonplaceholder.typicode.com/">JSONPlaceholder</a>, a free fake online REST API used for testing and prototyping. Specifically, we'll be simulating the process of creating a new post.  </p>
+<p>Before sending data, we must prepare it. Let's consider we're creating a new blog post:</p>
+<pre><code class="language-python"># The data we want to send
+ post_data = {
+     &quot;title&quot;: &quot;Understanding REST APIs&quot;,
+     &quot;body&quot;: &quot;REST APIs are fundamental in web services...&quot;,
+     &quot;userId&quot;: 1
+ }
+</code></pre>
+<p>This is our blog post with a title, body, and an associated user ID.</p>
+<p>With our data ready, we can send it using the <code>requests</code> library:</p>
+<pre><code class="language-python"> import requests
+
+# The API endpoint where we want to create the new post
+ url = 'https://jsonplaceholder.typicode.com/posts'
+
+# Sending the POST request
+ response = requests.post(url, json=post_data)
+
+# Output the result
+ if response.status_code == 201:
+     print(f&quot;Successfully created! New Post ID: {response.json()['id']}&quot;)
+ else:
+     print(&quot;Failed to create the post.&quot;)
+</code></pre>
+<p>Here, we've specified the URL to which we want to send the data and provided our post data in JSON format.</p>
+<p><strong>Note</strong>: It's essential to check the response status code. A <code>201</code> status indicates that our data was successfully received and a new resource was created on the server.</p>
+<p>When you send a POST request, the server typically responds with details about the newly created resource. In our example, the server returns the ID of the newly created post, which we then print.</p>
+<p>POST requests are crucial when we want to send or update data on a server. With the <code>requests</code> library in Python, this process is streamlined, making data submission and interactions with web services smooth and efficient.</p>
+<p>Now that we've learned how to interact with REST APIs using Python, let's explore how to build our own API using Flask.</p>
+<h4 id="building-a-simple-flask-api">Building a Simple Flask API</h4>
+<p><strong>Flask</strong> is a lightweight web framework for Python, making it easy to build web applications and RESTful services. In this section, we'll set up a simple Flask API that counts API requests and provides a method to determine the number of letters in a given name.</p>
+<p>First, install Flask:
+<code>pip install flask</code></p>
+<p>Create a new file named <strong>app.py</strong>. This will be our main application file.</p>
+<p>For our example, we'll use the following code:</p>
+<pre><code class="language-python">from flask import Flask, jsonify, request
+
+app = Flask(name)
+
+# Initialize a counter
+request_count = 0
+
+@app.route('/api/count', methods=['GET'])
+def count():
+global request_count
+request_count += 1
+return jsonify({&quot;count&quot;: request_count})
+
+@app.route('/api/letter_count', methods=['POST'])
+def letter_count():
+global request_count
+request_count += 1
+data = request.json
+name = data.get(&quot;name&quot;, &quot;&quot;)
+return jsonify({&quot;name&quot;: name, &quot;letter_count&quot;: len(name)})
+
+if name == 'main':
+app.run(debug=True)
+</code></pre>
+<p>This code sets up a Flask application with two routes:
+1. <strong>/api/count</strong>: When accessed, it increases a counter and returns the current count.
+2. <strong>/api/letter_count</strong>: Accepts a <strong>POST</strong> request with a <strong>JSON</strong> payload containing a name and returns the number of letters in the name.</p>
+<p>In your terminal or command prompt, navigate to the directory containing app.py and run:
+<code>python app.py</code></p>
+<p>The Flask server should start, and by default, it'll be accessible at http://127.0.0.1:5000/.</p>
+<h4 id="requesting-the-flask-api-using-python">Requesting the Flask API using Python</h4>
+<p>With our Flask API running, let's now query it using Python:</p>
+<p>Create a new file named <strong>client.py</strong> and add the following code:</p>
+<pre><code class="language-python">import requests
+
+# Making a GET request to the count endpoint
+count_response = requests.get('http://127.0.0.1:5000/api/count')
+print(count_response.json())
+
+# Making a POST request to the letter_count endpoint
+data = {&quot;name&quot;: &quot;Alice&quot;}
+letter_count_response = requests.post('http://127.0.0.1:5000/api/letter_count', json=data)
+print(letter_count_response.json())
+</code></pre>
+<p>The first request will return the current request count, while the second one will tell us the number of letters in the name "Alice".</p>
+<p>Flask provides an intuitive way to set up RESTful APIs quickly. With just a few lines of code, we've set up a server that can handle requests, perform operations, and return data. By understanding these basics, you can extend the functionality and integrate more complex operations, such as serving machine learning models.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../javascripts/mathjax.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
