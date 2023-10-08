@@ -7,7 +7,9 @@ Now that you have a good understanding of the PyTorch framework and how to deplo
 Once again, you are expected to use Python scripts to train your model and to deploy it.
 
 ## Practical session repository:
-If you haven't already done clone [this repository](https://github.com/DavidBert/AIF2024/tree/main)  on your computer.  
+If you haven't already done so, create an account on [Github](https://github.com/).
+Then fork [this repository](https://github.com/DavidBert/AIF2024/tree/main) and clone it on your computer.  
+![](../img/code/fork.png)  
 
 Then navigate to the `developpement/colorize` folder.  
 Your working directory should look like this:

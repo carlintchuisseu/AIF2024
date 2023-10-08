@@ -18,7 +18,8 @@ Try to complete the practical session without looking at it! -->
 
 ## Practical session repository:
 If you haven't already done so, create an account on [Github](https://github.com/).
-Then clone [this repository](https://github.com/DavidBert/AIF2024/tree/main) on your computer and open the `developpement/MNIST` folder.  
+Then fork [this repository](https://github.com/DavidBert/AIF2024/tree/main) and clone it on your computer.  
+![](../img/code/fork.png)
 
 
 ## The network class:
@@ -54,8 +55,7 @@ class MNISTNet(nn.Module):
         return x
 ```
 ## The training script
-The earlier file included your model class.  
-Now, you will proceed to finalize the training script, named `train.py`. This script will serve as a Python script for training a neural network on the MNIST Dataset.  
+The earlier file included your model class. Now, you will proceed to finalize the training script, named `train.py`. This script will serve as a Python script for training a neural network on the MNIST Dataset.  
 Both the `train()` and `test()` methods have already been implemented.
 
 ```python
@@ -384,7 +384,7 @@ gr.Interface(fn=recognize_digit,
             ).launch(debug=True, share=True);
 ```
 
-Complete the ```mnist_app.py``` to either load your model weights or use your api to perform the predictions and run your app with the following command:
+Complete the ```mnist_webapp.py``` to either load your model weights or use your api to perform the predictions and run your app with the following command:
 
 ```bash
 python mnist_app.py --weights_path [path_to_the weights]
