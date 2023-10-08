@@ -188,7 +188,7 @@ Here, you will save the model's state dictionary (``net.state_dict()``) in a fil
 The state dictionary is a Python dictionary containing all the weights and biases of the network.
 
 ```python
-  torch.save(net.state_dict(), 'mnist_net.pth')
+  torch.save(net.state_dict(), 'weights/mnist_net.pth')
 ```
 
 You should now be able to run your python script using the following command in your terminal:
@@ -405,6 +405,12 @@ sudo docker build -t mnist-flask-app .
 ```
 This will create a docker image named `mnist-flask-app`.
 A docker image is a read-only template that contains a set of instructions for creating a container that can run on the Docker platform.
+
+You can list all the images on your machine with the following command:
+```bash
+sudo docker images
+```
+
 A docker container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI.
 Run the container with the following command:
 ```bash
@@ -413,13 +419,39 @@ sudo docker run -p 5000:5000 mnist-flask-app
 You can now access your application by going to `http://localhost:5000` in your browser. 
 
 By defult the container will run the command `python mnist_app.py --weights_path weights/mnist_net.pth` when it starts.
-You can override this command by passing it as an argument to the `docker run` command for instance to run the gradio app you can use the following command:
-```bash
-docker run mnist-flask-app python mnist_gradio.py --weights_path weights/mnist_net.pth
-```
+
 That's it! You have created a docker image that can be run on any machine that has docker installed.
 By doing so, you have created a reproducible environment for your application that can be run on any machine.
 This is very useful when you want to deploy your application on a server or in the cloud.
+
+
+
+To list all the running containers use the following command:
+```bash
+sudo docker ps
+```
+To list all the containers (running and stopped) use the following command:
+```bash
+sudo docker ps -a
+```
+To stop a container use the following command:
+```bash
+sudo docker stop [CONTAINER_ID]
+```
+To remove a container use the following command:
+```bash
+sudo docker rm [CONTAINER_ID]
+```
+To remove an image use the following command:
+```bash
+sudo docker rmi [IMAGE_ID]
+```
+
+<!-- You can override this command by passing it as an argument to the `docker run` command for instance to run the gradio app you can use the following command:
+```bash
+docker run mnist-flask-app python mnist_gradio.py --weights_path weights/mnist_net.pth
+``` -->
+
 
 DO NOT FORGET TO DELETE YOUR DOCKER IMAGE AND CONTAINER WHEN YOU ARE DONE.
 
