@@ -258,7 +258,7 @@ If you are using Google Colab, you are expected to do all the code development o
 Try to run your code on your local machine for one or two minibatches to check that everything is working.
 If it is the case, you can send your code to Google Colab to train your model.
 To do so:
-- Open the `run_in_colab.ipynb` notebook in Google Colab.
+- Open the [run_in_colab.ipynb](https://colab.research.google.com/github/DavidBert/AIF2024/blob/main/developpement/Colorize/run_in_colab.ipynb) notebook in Google Colab.
 - Make sure you are connected to a GPU runtime.
 - Run the first cell to download the dataset.
 - Upload the files `data_utils.py`, `model.py` and `train.py` to the `code` folder in Google Colab.
