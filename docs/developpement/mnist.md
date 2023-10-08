@@ -18,8 +18,7 @@ Try to complete the practical session without looking at it! -->
 
 ## Practical session repository:
 If you haven't already done so, create an account on [Github](https://github.com/).
-Then fork [this repository](https://github.com/DavidBert/ModIA_TP1) and clone it on your computer.  
-![](../img/code/fork.png)
+Then clone [this repository](https://github.com/DavidBert/AIF2024/tree/main) on your computer and open the `developpement/MNIST` folder.  
 
 
 ## The network class:
