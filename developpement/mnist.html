@@ -140,10 +140,6 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#a-simple-gui-with-tkinter" class="nav-link">A simple GUI with tkinter</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
             <li class="nav-item" data-level="2"><a href="#deploying-your-model-with-gradio" class="nav-link">Deploying your model with Gradio</a>
               <ul class="nav flex-column">
               </ul>
@@ -451,10 +447,34 @@ The model will return a tensor containing the probabilities for each class. The 
 <p>Now run the <code>test_api.ipynb</code> notebook to test your API.</p>
 <p>We requested the api one image at a time. As you may already know, neural networks are much more efficient when they are fed with a batch of images.<br />
 Modify the <code>mnist_api.py</code> by adding a new route <code>/batch_predict</code> that will accept a batch of images and return a batch of predictions and test it with the last cell of the <code>test_api.ipynb</code> notebook.</p>
-<h2 id="a-simple-gui-with-tkinter">A simple GUI with tkinter</h2>
-<p>The file <code>mnist_gui.py</code> contains a simple GUI that will allow you to draw a digit and send it to the API to get a prediction.
-Run the script with:</p>
-<pre><code class="language-bash">python mnist_gui.py --model_path [PATH_TO_YOUR_MODEL]
+<pre><code class="language-python">@app.route('/batch_predict', methods=['POST'])
+def batch_predict():
+    # Get the image data from the request
+    images_binary = request.files.getlist(&quot;images[]&quot;)
+
+    tensors = []
+
+    for img_binary in images_binary:
+        img_pil = Image.open(img_binary.stream)
+        tensor = transform(img_pil)
+        tensors.append(tensor)
+
+    # Stack tensors to form a batch tensor
+    batch_tensor = torch.stack(tensors, dim=0)
+
+    # Make prediction
+    with torch.no_grad():
+        outputs = model(batch_tensor.to(device))
+        _, predictions = outputs.max(1)
+
+    return jsonify({&quot;predictions&quot;: predictions.tolist()})
+  ```
+
+## A simple GUI with tkinter
+The file `mnist_gui.py` contains a simple GUI that will allow you to draw a digit and send it to the API to get a prediction.
+Run the script with:
+```bash 
+python mnist_gui.py --model_path [PATH_TO_YOUR_MODEL]
 </code></pre>
 <p>and provide some of the images in the <code>MNIST_sample</code> folder as input to your model.</p>
 <h2 id="deploying-your-model-with-gradio">Deploying your model with Gradio</h2>
