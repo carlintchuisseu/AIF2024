@@ -346,6 +346,30 @@ Now run the `test_api.ipynb` notebook to test your API.
 We requested the api one image at a time. As you may already know, neural networks are much more efficient when they are fed with a batch of images.  
 Modify the `mnist_api.py` by adding a new route `/batch_predict` that will accept a batch of images and return a batch of predictions and test it with the last cell of the `test_api.ipynb` notebook.
 
+```python
+@app.route('/batch_predict', methods=['POST'])
+def batch_predict():
+    # Get the image data from the request
+    images_binary = request.files.getlist("images[]")
+
+    tensors = []
+
+    for img_binary in images_binary:
+        img_pil = Image.open(img_binary.stream)
+        tensor = transform(img_pil)
+        tensors.append(tensor)
+
+    # Stack tensors to form a batch tensor
+    batch_tensor = torch.stack(tensors, dim=0)
+
+    # Make prediction
+    with torch.no_grad():
+        outputs = model(batch_tensor.to(device))
+        _, predictions = outputs.max(1)
+
+    return jsonify({"predictions": predictions.tolist()})
+  ```
+
 ## A simple GUI with tkinter
 The file `mnist_gui.py` contains a simple GUI that will allow you to draw a digit and send it to the API to get a prediction.
 Run the script with:
