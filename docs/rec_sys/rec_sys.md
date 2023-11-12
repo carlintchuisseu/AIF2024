@@ -26,5 +26,6 @@
 
 During the practical session, you saw how to build a recommender system based on content using the movie posters.  
 Use `Gradio` to build a web app that takes as input a movie poster and returns the images of the 5 most similar movies according to their poster.  
-The web app should be light and fast. Use a pre-trained network only to extract the vector representation of the input image and use the annoy index you built during the practical session to find the 5 most similar movies.    
+I would like you to mimic a real recommender system using a vector database.  To do so I want the database to be requested by the web app through a REST API. 
+The web app should be light and fast. Use a pre-trained network only to extract the vector representation of the input image and call through the REST API the annoy index you built during the practical session to find the 5 most similar movies.     
 Once this is done create a docker file to deploy your application.  Do not forget to include everything needed to run your application in the docker file.
