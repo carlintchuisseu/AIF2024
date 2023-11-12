@@ -77,6 +77,10 @@
 <li>
     <a href="rec_sys.html" class="dropdown-item active">Course and practical session</a>
 </li>
+            
+<li>
+    <a href="quizz.html" class="dropdown-item">Quizz</a>
+</li>
     </ul>
   </li>
                                 </ul>
@@ -101,7 +105,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../schedule.html" class="nav-link">
+                                <a rel="next" href="quizz.html" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -129,6 +133,14 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#practical-session" class="nav-link">Practical session:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#project" class="nav-link">Project:</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -153,18 +165,18 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fiSHiAKxuNo?si=wfZVN3ZT75reBP_U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-<!-- ## Practical session:
-*   IMDB recommender system: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DavidBert/N7-techno-IA/blob/master/code/recommender_systems/INSA_Reco_TP.ipynb#scrollTo=BRuXLAqsabjZ)
+<h2 id="practical-session">Practical session:</h2>
+<ul>
+<li>IMDB recommender system: <a href="https://colab.research.google.com/github/DavidBert/AIF2024/blob/main/rec_sys/recommender_systems/INSA_Reco.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></li>
+</ul>
+<!-- *   Solution: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DavidBert/AIF2024/blob/solutions/rec_sys/recommender_systems/INSA_Reco_solution.ipynb) -->
 
-*   Solution: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DavidBert/N7-techno-IA/blob/master/code/recommender_systems/INSA_Reco_solution.ipynb#scrollTo=y5KJkgtCZjH4&uniqifier=1)
-
-## Project:
-
-During the practical session, you saw how to build a recommender system based on content using the movie posters.  
-Use `Gradio` to build a web app that takes as input a movie poster and returns the images of the 5 most similar movies according to their poster.  
-The web app should be light and fast. Use a pre-trained network only to extract the vector representation of the input image and use the annoy index you built during the practical session to find the 5 most similar movies.    
-Once this is done create a docker file to deploy your application.  Do not forget to include everything needed to run your application in the docker file.
-Your app should look like something like this: --></div>
+<h2 id="project">Project:</h2>
+<p>During the practical session, you saw how to build a recommender system based on content using the movie posters.<br />
+Use <code>Gradio</code> to build a web app that takes as input a movie poster and returns the images of the 5 most similar movies according to their poster.<br />
+I would like you to mimic a real recommender system using a vector database.  To do so I want the database to be requested by the web app through a REST API. 
+The web app should be light and fast. Use a pre-trained network only to extract the vector representation of the input image and call through the REST API the annoy index you built during the practical session to find the 5 most similar movies.   <br />
+Once this is done create a docker file to deploy your application.  Do not forget to include everything needed to run your application in the docker file.</p></div>
             </div>
         </div>
 
